@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link type="text/css" rel="stylesheet" href="{% static 'blog/pages.css' %}"
+	media="screen and (min-width: 600px)">
+	<link type="text/css" href="{% static 'blog/medium.css' %}" rel="stylesheet"
+	media="screen and (max-width: 600px)">
+</head>
+<body>
+<div class="site-container">
+	<ul class="nav">
+		<li><a href="{% url 'blog:index' %}">HOME</a></li>
+		<li ><a href="#contact">CONTACTS</a></li>
+	</ul>
+<h1 class="top">{{posts.name}}'s quotes</h1>
+<div class="parta">
+<div class="b">
+<h2>{{posts.name}}</h2>
+<p>Born: {{posts.DOB}}</p>
+<p>Lives: {{posts.lives|slice:":20"}}</p>
+
+<em class='text'>BIO source <a href="https://en.wikipedia.org/wiki/Robert_Kiyosaki" target="_blank">wikipedia</a></em><br>
+{{posts.known|slice:":200"}}
+<br>
+</div>
+</div>
+
+<div class="c">
+{% for quot in posts.quotes_set.all|slice:":3" %}
+<h4>{{posts.name}}</h4>
+<p>{{quot.quotes|slice:":200"}}</p>
+{% endfor %}
+</div>
+
+<div class="d">
+{% for quot in posts.quotes_set.all|slice:"3:6" %}
+<h4>{{posts.name}}</h4>
+<p>{{quot.quotes|slice:":200"}}</p>
+{% endfor %}
+</div>
+
+<div class="e">
+{% for quot in posts.quotes_set.all|slice:"6:11" %}
+<h4>{{posts.name}}</h4>
+<p>{{quot.quotes|slice:":200"}}</p>
+{% endfor %}
+</div>
+<div id="contact">Contact us {{email|urlize}}</div>
+</div>
+</body>
+</html>

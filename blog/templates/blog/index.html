@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+<div class="site-container">
+	<ul class="nav">
+		<li><a href="{% url 'blog:index' %}">HOME</a></li>
+		<li ><a href="#contact">CONTACTS</a></li>
+	</ul>
+
+	<h3 class="top">MOTIVATIONAL QUOTES</h3>
+
+	
+	<div class="a">
+	{% for post in post|slice:":1" %}
+	<section class="parta">
+	<h1>{{post.name}}</h1>
+	<p>Born: {{post.DOB}}</p>
+	<p>Lives: {{post.lives|slice:":20"}}</p>
+	</section>
+	<p class="partc">
+	<em class='text'>BIO source <a href="https://en.wikipedia.org/wiki/Tony_Robbins" target="_blank">wikipedia</a></em><br>
+	{{post.known|slice:":200"}} <em> read more </em><a href="https://en.wikipedia.org/wiki/Tony_Robbins" target="_blank">wikipedia</a>
+	<br>
+	<a href="{% url 'blog:first' pk=post.id %}" >read quotes</a>
+	</p>
+	{% endfor %}
+	</div>
+	
+	
+	<div class="a">
+	{% for post in post|slice:"1:2" %}
+	<section class="parta">
+	<h1>{{post.name}}</h1>
+	<p>Born: {{post.DOB}}</p>
+	<p>Lives: {{post.lives|slice:":20"}}</p>
+	</section>
+	<p class="partc">
+	<em class='text'>BIO source <a href="https://en.wikipedia.org/wiki/Brian_Tracy" target="_blank">wikipedia</a></em><br>
+	{{post.known|slice:":600"}} <em>read more</em> <a href="https://en.wikipedia.org/wiki/Brian_Tracy" target="_blank">wikipedia</a><br>
+	<a href="{% url 'blog:one' pk=post.id %}" >read quotes</a><br>
+	</p>
+	{% endfor %}
+	</div>
+
+	
+
+	<div class="a">
+	{% for post in post|slice:"2:3" %}
+	<section class="parta">
+	<h1>{{post.name}}</h1>
+	<p>Born: {{post.DOB}}</p>
+	<p>Lives: {{post.lives|slice:":20"}}</p>
+	</section>
+	<p class="partc">
+	<em class='text'>BIO source <a href="https://en.wikipedia.org/wiki/Stephen_Covey" target="_blank">wikipedia</a></em><br>
+	{{post.known|slice:":200"}} <em>read more </em> <a href="https://en.wikipedia.org/wiki/Stephen_Covey" target="_blank">wikipedia</a><br>
+	<a href="{% url 'blog:two'  pk=post.id %}" >read quotes</a><br>
+	</p>
+	{% endfor %}
+	</div>
+	<br>
+	
+
+	<div class="a">
+	{% for post in post|slice:"3:4" %}
+	<section class="parta">
+	<h1>{{post.name}}</h1>
+	<p>Born: {{post.DOB}}</p>
+	<p>Lives: {{post.lives|slice:":20"}}</p>
+	</section>
+	<p class="partc">
+	<em class='text'>BIO source <a href="https://en.wikipedia.org/wiki/Dale_Carnegie" target="_blank">wikipedia</a></em><br>
+	{{post.known|slice:":600"}} <em> read more </em> <a href="https://en.wikipedia.org/wiki/Dale_Carnegie" target="_blank">wikipedia</a><br>
+	<a href="{% url 'blog:three'  pk=post.id %}" >read quotes</a><br>
+	</p>
+	{% endfor %}
+	</div>
+	<br>
+
+
+	<div class="a">
+	{% for post in post|slice:"4:5" %}
+	<section class="parta">
+	<h1>{{post.name}}</h1>
+	<p>Born: {{post.DOB}}</p>
+	<p>Lives: {{post.lives|slice:":20"}}</p>
+	</section>
+	<p class="partc">
+	<em class='text'>BIO source <a href="https://en.wikipedia.org/wiki/Mark_Victor_Hansen" target="_blank">wikipedia</a></em><br>
+	{{post.known|slice:":200"}} <em>read more </em> <a href="https://en.wikipedia.org/wiki/Mark_Victor_Hansen" target="_blank">wikipedia</a><br>
+	<a href="{% url 'blog:four'  pk=post.id %}" >read quotes</a><br>
+	</p>
+	<section class="parta">
+	{% endfor %}
+	</div>
+	<br>
+
+	<div class="a">
+	{% for post in post|slice:"5:6" %}
+	<section class="parta">
+	<h1>{{post.name}}</h1>
+	<p>Born: {{post.DOB}}</p>
+	<p>Lives: {{post.lives|slice:":20"}}</p>
+	</section>
+	<p class="partc">
+	<em class='text'>BIO source <a href="https://en.wikipedia.org/wiki/Napoleon_Hill" target="_blank">wikipedia</a></em><br>
+	{{post.known|slice:":200"}} <em> read more </em> <a href="https://en.wikipedia.org/wiki/Napoleon_Hill" target="_blank">wikipedia</a><br>
+	<a href="{% url 'blog:five'  pk=post.id %}" >read quotes</a><br>
+	</p>
+	{% endfor %}
+	</div>
+	<br>
+
+	<div class="a">
+	{% for post in post|slice:"6:7" %}
+	<section class="parta">
+	<h1>{{post.name}}</h1>
+	<p>Born: {{post.DOB}}</p>
+	<p>Lives: {{post.lives|slice:":20"}}</p>
+	</section>
+	<p class="partc">
+	<em class='text'>BIO source <a href="https://en.wikipedia.org/wiki/Robert_Kiyosaki" target="_blank">wikipedia</a></em><br>
+	{{post.known|slice:":200"}} <em>read more </em> <a href="https://en.wikipedia.org/wiki/Robert_Kiyosaki" target="_blank">wikipedia</a><br>
+	<a href="{% url 'blog:six'  pk=post.id %}" >read quotes</a><br>
+	</p>
+	{% endfor %}
+	</div>
+	<br>
+	<div id="contact">Contact us {{email|urlize}}</div>
+</div>
+
+</body>
+</html>
+
